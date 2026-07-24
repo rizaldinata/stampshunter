@@ -1,0 +1,97 @@
+# ── General OS and IDEs ────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ── AI Agents & PRDs ──────────────────────────────────────────────────────────
+docs/prd/
+.mimocode/
+.agents/
+AGENTS.md
+CLAUDE.md
+*.agents
+
+# Ignore all root-level design markdown documentation except README
+/*.md
+!/README.md
+
+# ── Backend (FastAPI / Python) ────────────────────────────────────────────────
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+backend/venv/
+backend/.venv/
+backend/env/
+backend/ENV/
+backend/env.bak/
+backend/venv.bak/
+
+# Environment configurations and secrets
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Local SQLite databases
+backend/*.db
+backend/*.sqlite3
+backend/stampshunter.db
+
+# Test and coverage caches
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.coverage
+backend/htmlcov/
+
+# Local uploaded assets (Supabase fallbacks)
+backend/static/uploads/
+!backend/static/uploads/.gitkeep
+
+# ── Frontend (Flutter / Dart) ─────────────────────────────────────────────────
+# Flutter build and dependency files
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+build/
+pubspec-override.yaml
+
+# Android-specific local files and keys
+android/local.properties
+android/key.properties
+android/app/*.keystore
+android/app/*.jks
+android/app/local.properties
+android/app/key.properties
+
+# iOS-specific build configurations
+ios/Flutter/Generated.xcconfig
+ios/Flutter/flutter_export_environment.sh
+ios/Runner/GeneratedPluginRegistrant.h
+ios/Runner/GeneratedPluginRegistrant.m
+ios/.symlinks/
+ios/Pods/
+
+# macOS-specific build configurations
+macos/Flutter/Generated.xcconfig
+macos/Flutter/flutter_export_environment.sh
+macos/Runner/GeneratedPluginRegistrant.h
+macos/Runner/GeneratedPluginRegistrant.m
+macos/.symlinks/
+macos/Pods/
+
+# Desktop specific folders
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+windows/flutter/ephemeral/
+
+# Log files
+*.log

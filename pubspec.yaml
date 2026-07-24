@@ -1,0 +1,69 @@
+name: stampshunter
+description: "StampsHunter - Camera Stamp Social App"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.6.1
+  freezed_annotation: ^2.4.4
+
+  # Navigation
+  go_router: ^14.8.1
+
+  # HTTP Client
+  dio: ^5.8.0+1
+
+  # Local Storage
+  shared_preferences: ^2.5.3
+
+  # Image
+  image: ^4.5.3
+  image_picker: ^1.1.2
+  image_cropper: ^9.0.0
+  camera: ^0.10.5+9
+
+  # UI
+  cached_network_image: ^3.4.1
+  shimmer: ^3.0.0
+  google_fonts: ^6.2.1
+
+  # Utils
+  intl: ^0.20.2
+  uuid: ^4.5.1
+  path_provider: ^2.1.5
+  permission_handler: ^11.4.0
+  supabase_flutter: ^2.6.0
+
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Code Generation
+  riverpod_generator: ^2.6.3
+  build_runner: ^2.4.14
+  json_serializable: ^6.9.4
+  freezed: ^2.5.8
+
+  # Testing
+  mocktail: ^1.0.4
+  integration_test:
+    sdk: flutter
+
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/templates/
