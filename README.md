@@ -1,35 +1,33 @@
-# 📬 StampsHunter — Digital Stamp Collector & Creator Platform
+# 📬 StampsHunter — Platform Koleksi & Pembuatan Perangko Digital
 
 [![Flutter](https://img.shields.io/badge/Flutter-v3.19+-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![FastAPI](https://img.shields.io/badge/FastAPI-v0.100+-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Supabase](https://img.shields.io/badge/Supabase-Storage-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**StampsHunter** adalah platform modern berbasis mobile (iOS & Android) bagi para filatelis dan pencinta seni untuk berburu, membuat, menghias, dan membagikan koleksi perangko digital secara sosial. 
-
-Dengan menggabungkan kekuatan pemrosesan gambar di backend dan estetika premium di frontend, StampsHunter mengubah foto biasa dari kamera menjadi mahakarya perangko digital bernilai tinggi dengan gerigi presisi, filter vintage antik, dan tipografi kustom.
+**StampsHunter** adalah platform berbasis mobile (Android & iOS) bagi kolektor untuk membuat, menghias, dan membagikan koleksi perangko digital secara sosial. Aplikasi ini memproses foto perangko fisik biasa menjadi format digital dengan tepi gerigi, filter vintage, dan tipografi kustom.
 
 ---
 
 ## ✨ Fitur Utama (Key Features)
 
-### 📸 Kamera & Pemangkas Foto Pintar
-* Tangkap gambar perangko fisik Anda secara instan menggunakan kamera internal.
-* Fitur *Cropping* (pemotongan gambar) yang presisi untuk memfokuskan objek perangko sebelum diedit.
+### 📸 Kamera & Pemotong Foto (Cropping)
+* Mengambil foto perangko fisik menggunakan kamera HP secara langsung.
+* Memotong (crop) area foto secara manual untuk memfokuskan objek perangko sebelum masuk ke editor.
 
-### 🎨 Modifikasi Perangko Digital (*Stamp Editor*)
-* **Perforasi Klasik (Gerigi)**: Sesuaikan ukuran gigi (*tooth size*), jarak gerigi (*tooth spacing*), lebar border, dan warna border secara interaktif.
-* **Filter Vintage Khusus**: Berikan nuansa antik menggunakan filter sepia, intensitas butiran kertas (*grain*), kehangatan warna (*warmth*), dan efek vignette retro.
-* **Tipografi Kustom (Text Overlay)**: Tambahkan tulisan pos bergaya klasik dengan opsi font Serif, Monospace, Script, dll., beserta pengaturan letak dan margin.
+### 🎨 Editor Perangko Digital
+* **Bingkai Gerigi (Perforasi)**: Mengatur ukuran gigi gerigi (*tooth size*), jarak gerigi (*tooth spacing*), lebar border, dan warna border secara interaktif.
+* **Filter Vintage**: Menerapkan filter sepia, intensitas butiran kertas (*grain*), kehangatan warna (*warmth*), dan efek vignette retro.
+* **Overlay Teks**: Menambahkan tulisan bergaya klasik pada perangko dengan pilihan font (Serif, Monospace, Script, dll.) beserta pengaturan posisi dan margin.
 
 ### 🌐 Feed Sosial & Galeri Kolektor
-* **Trending & Following Feeds**: Lihat karya perangko terpopuler dari kolektor lain atau pantau linimasa dari kolektor yang Anda ikuti.
-* **Interaksi Sosial**: Berikan apresiasi berupa *Like* dan diskusikan keunikan perangko di kolom komentar interaktif (mendukung balasan komentar bertingkat).
-* **Arsip Koleksi Pribadi**: Profil lengkap yang menampilkan galeri seluruh perangko Anda beserta bio dan foto profil kustom.
+* **Feed Publik & Following**: Melihat perangko terbaru atau terpopuler (berdasarkan jumlah like) dari kolektor lain, serta melihat perangko khusus dari akun yang diikuti.
+* **Interaksi Sosial**: Fitur untuk memberikan Like dan menuliskan komentar (mendukung balasan komentar bertingkat).
+* **Profil Pengguna**: Menampilkan galeri perangko yang telah dibuat, bio, dan edit nama/foto profil.
 
-### 🛡️ Offline-First & Cloud Sync Hybrid
-* Pengunggahan file menggunakan **Supabase Storage** terenkripsi di cloud.
-* Dilengkapi *fallback* otomatis ke **Penyimpanan Lokal (Local Storage)** jika Anda sedang berada di daerah minim koneksi (offline-first).
+### 🛡️ Penyimpanan Gambar dengan Fallback Lokal
+* Menyimpan gambar asli, gambar stamp hasil edit, dan thumbnail ke **Supabase Storage**.
+* Dilengkapi *fallback* otomatis ke penyimpanan lokal backend jika unggahan ke Supabase mengalami kegagalan atau koneksi internet bermasalah.
 
 ---
 
@@ -37,17 +35,17 @@ Dengan menggabungkan kekuatan pemrosesan gambar di backend dan estetika premium 
 
 ### Frontend (Mobile App)
 * **Framework**: Flutter (Dart)
-* **State Management**: Flutter Riverpod (Notifier & AsyncNotifier)
+* **State Management**: Riverpod (Notifier & AsyncNotifier)
 * **Routing**: GoRouter
-* **Networking**: Dio (dengan interseptor token dan konfigurasi timeout terpusat)
-* **UI/Aesthetics**: Google Fonts (Montserrat & Playfair Display), Custom Painter untuk simulasi gerigi perangko presisi.
+* **Networking**: Dio (dengan interseptor autentikasi dan timeout)
+* **UI**: Google Fonts (Montserrat & Playfair Display), CustomPainter untuk menggambar gerigi perangko secara dinamis.
 
 ### Backend (API Server)
 * **Framework**: FastAPI (Python)
-* **Asynchronous ORM**: SQLAlchemy 2.0 + aiosqlite
+* **ORM**: SQLAlchemy + aiosqlite (async)
 * **Database Migrations**: Alembic
-* **Cloud Storage Integration**: Supabase Storage Client (dengan penanganan *non-blocking thread timeout*)
-* **Image Processing Engine**: Pillow (PIL)
+* **Cloud Storage**: Supabase Storage Client (dengan timeout koneksi)
+* **Image Processing**: Pillow (PIL) untuk pemrosesan filter, gerigi, dan teks pada gambar.
 
 ---
 
@@ -56,7 +54,7 @@ Dengan menggabungkan kekuatan pemrosesan gambar di backend dan estetika premium 
 ### Prerequisites
 * Flutter SDK (v3.19 atau lebih baru)
 * Python (v3.10 atau lebih baru)
-* Akun proyek Supabase (opsional, server akan otomatis beralih ke penyimpanan lokal jika tidak dikonfigurasi)
+* Proyek Supabase (opsional, server akan otomatis beralih ke penyimpanan lokal jika tidak dikonfigurasi)
 
 ---
 
@@ -99,7 +97,7 @@ Dengan menggabungkan kekuatan pemrosesan gambar di backend dan estetika premium 
    ```bash
    flutter pub get
    ```
-3. Hubungkan perangkat fisik Anda atau nyalakan Android Emulator / iOS Simulator.
+3. Hubungkan perangkat fisik atau aktifkan emulator.
 4. Jalankan aplikasi:
    ```bash
    flutter run
@@ -107,14 +105,12 @@ Dengan menggabungkan kekuatan pemrosesan gambar di backend dan estetika premium 
 
 ---
 
-## 🧪 Strategi Pengujian (Testing Strategy)
-Aplikasi ini dibangun menggunakan prinsip *test-driven* untuk menjamin stabilitas:
-
-* **Backend Unit & API Tests**:
+## 🧪 Pengujian (Testing)
+* **Backend API & Unit Tests**:
   ```bash
   cd backend && pytest
   ```
-* **Frontend Widget & Unit Tests**:
+* **Frontend Unit & Widget Tests**:
   ```bash
   flutter test
   ```
@@ -126,4 +122,4 @@ Aplikasi ini dibangun menggunakan prinsip *test-driven* untuk menjamin stabilita
 ---
 
 ## 📄 Lisensi (License)
-Proyek ini dilisensikan di bawah **Lisensi MIT** - lihat file [LICENSE](LICENSE) untuk detail lebih lanjut.
+Proyek ini menggunakan **Lisensi MIT** - lihat file [LICENSE](LICENSE) jika ada.
