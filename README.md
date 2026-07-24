@@ -3,7 +3,6 @@
 [![Flutter](https://img.shields.io/badge/Flutter-v3.19+-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
 [![FastAPI](https://img.shields.io/badge/FastAPI-v0.100+-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![Supabase](https://img.shields.io/badge/Supabase-Storage-3ECF8E?logo=supabase&logoColor=white)](https://supabase.com)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 **StampsHunter** adalah platform berbasis mobile (Android & iOS) bagi kolektor untuk membuat, menghias, dan membagikan koleksi perangko digital secara sosial. Aplikasi ini memproses foto perangko fisik biasa menjadi format digital dengan tepi gerigi, filter vintage, dan tipografi kustom.
 
@@ -119,7 +118,3 @@
   flutter test integration_test/app_test.dart
   ```
 
----
-
-## 📄 Lisensi (License)
-Proyek ini menggunakan **Lisensi MIT** - lihat file [LICENSE](LICENSE) jika ada.
